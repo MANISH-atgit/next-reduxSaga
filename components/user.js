@@ -12,31 +12,15 @@ const Users = ({ dateTime }) => {
   }, [dispatch]);
   return (
     <>
-      {/* <div>
-        {usersList.users ? (
-          usersList.users.map((item) => <h1>{item.id}</h1>)
-        ) : (
-          <div>Error</div>
-        )}
-      </div> */}
+      <h1>{usersList}</h1>
       {console.log(usersList, "hello")}
       {console.log(dateTime)}
     </>
   );
 };
 
-// export const getServerSideProps = ReduxWrapper.getStaticProps(
-//   async ({ store, req, res, ...etc }) => {
-//     // regular stuff
-//     store.dispatch(ApplicationSlice.actions.updateConfiguration());
-//     // end the saga
-//     store.dispatch(END);
-//     await store.sagaTask.toPromise();
-//   }
-// );
-
-export const getStaticProps = wrapper.getStaticProps((store) => () => {
+export const getStaticProps = () => {
   dispatch(loadUsers());
-});
+};
 
 export default Users;
